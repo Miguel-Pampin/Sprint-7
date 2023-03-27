@@ -1,0 +1,38 @@
+<div class="row container-fluid ms-5">
+  <div class="col-12">
+    <form (ngSubmit)="submitForm()" class="mt-5 " [formGroup]="myForm">
+      <h3>¿Que quieres hacer?</h3>
+      <div class="row">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="flexCheckWeb" formControlName="web"
+            (click)="controlarPrecio('web',500)">
+          <label class="form-check-label" for="flexCheckWeb">
+            Hacer una página web (500 €)
+          </label>
+        </div>
+        <div *ngIf="mostrarPanel('web')">
+          <app-panel></app-panel>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="flexCheckSEO" formControlName="Seo"
+            (click)="controlarPrecio('Seo',300)">
+          <label class="form-check-label" for="flexCheckSEO">
+            Hacer una campaña SEO (300 €)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="flexCheckPublicitat" formControlName="publicidad"
+            (click)="controlarPrecio('publicidad',200)">
+          <label class="form-check-label" for="flexCheckPublicitat">
+            Hacer una campaña de publicitat (200 €)
+          </label>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col">
+        <p>Precio: {{ SumaTotal|number}}€</p>
+      </div>
+    </div>
+  </div>
+</div>

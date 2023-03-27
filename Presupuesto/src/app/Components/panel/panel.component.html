@@ -1,0 +1,11 @@
+<form [formGroup]="myPanellForm">
+    <div class="input-group input-group-sm  mb-3 w-50 ">
+        <label>Numero de paginas: </label>
+        <input type="number" class="form-control" [(ngModel)]="numPaginas" formControlName="paginas" min="0">         
+    </div>
+
+    <div class="input-group input-group-sm mb-3 w-50">
+        <label>Numero de idiomas: </label>
+        <input type="number" class="form-control" formControlName="idiomas" [(ngModel)]="numIdiomas" min="0">
+    </div>
+</form>
