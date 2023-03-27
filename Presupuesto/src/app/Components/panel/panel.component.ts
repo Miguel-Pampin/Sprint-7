@@ -26,5 +26,25 @@ export class PanelComponent implements OnInit {
     
   }
 
- 
+  sumar(campo:string){
+    if( campo === "paginas"){
+      this.numPaginas ++
+    }else  if( campo === "idiomas"){
+      this.numIdiomas ++;
+    }
+    this.panelPrice();
+    
+  }
+
+  restar(valor:number,campo:string){
+    if( valor > 0 && campo === "paginas" ){
+      this.numPaginas --;     
+    }
+    else if( valor > 0 && campo === "idiomas"){
+      this.numIdiomas --;
+    }
+    
+    this.panelPrice();
+  }
 }
+
