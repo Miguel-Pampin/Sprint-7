@@ -35,6 +35,7 @@ ngOnChanges(changes: SimpleChanges): void {
 }
 
   ngOnInit()  {
+    
       this.myForm.controls['web'].valueChanges.subscribe((web:boolean)  =>{
       this.PreciosService.ControlDelPanel(web,500)
     
@@ -50,6 +51,7 @@ ngOnChanges(changes: SimpleChanges): void {
       
     
     });
+   
   }
   
   total:number = 0;
@@ -61,9 +63,13 @@ ngOnChanges(changes: SimpleChanges): void {
       this.PreciosService.totalHome += valor
     }
   }
+  
+   resetForm() {
+  this.myForm.reset();
+  location.reload();
+  }
   submitForm(){
-    
-      
+         
     if(this.myForm.invalid){
         this.myForm.markAllAsTouched();
         return;
@@ -72,4 +78,5 @@ ngOnChanges(changes: SimpleChanges): void {
       this.myForm.reset({publicidad:false,Seo:false,web:false}); 
     } 
   }
+  
 }

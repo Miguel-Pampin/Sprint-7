@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { PanelComponent } from './Components/panel/panel.component';
+import { BienvenidaComponent } from './Components/bienvenida/bienvenida.component';
+
 
   
 
@@ -15,7 +17,9 @@ import { PanelComponent } from './Components/panel/panel.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    PanelComponent 
+    PanelComponent,
+    BienvenidaComponent
+   
   ],
   imports: [
     BrowserModule,
