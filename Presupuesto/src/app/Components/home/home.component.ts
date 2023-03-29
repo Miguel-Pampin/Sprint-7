@@ -73,11 +73,12 @@ ngOnChanges(changes: SimpleChanges): void {
   
   submitForm(){
     const NuevoPresupuesto: lista = 
-    {      
-      idPresupuesto: this.myForm.value.nombrePresupuesto,
+    {
+      nombreProyecto: this.myForm.value.nombrePresupuesto,
       nombreCliente: this.myForm.value.nombreCliente,
       fecha: new Date,
-      total: this.PreciosService.precioTotalGlobal
+      total: this.PreciosService.precioTotalGlobal,
+      id: 0
     }    
     if(this.myForm.invalid){
         this.myForm.markAllAsTouched();
@@ -85,7 +86,7 @@ ngOnChanges(changes: SimpleChanges): void {
     }else if (this.myForm.valid) { 
       this.PreciosService.totalPrice();
       this.PresupuestoList.push(NuevoPresupuesto);
-      console.log(this.PresupuestoList)
+      this.PreciosService.guardarEnLocal(this.PresupuestoList);
       this.PreciosService.restarTotal();
       this.myForm.reset({publicidad:false,Seo:false,web:false}); 
     } 

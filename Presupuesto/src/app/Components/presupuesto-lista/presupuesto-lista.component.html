@@ -1,8 +1,14 @@
 <h2>Presupuesto</h2>
+<div class=" d-grid gap-2 d-md-flex justify-content-md-start" role="group">
+    <button (click)="ordenadoAz()"  type="button" class="btn btn-outline-dark">Orden alfabético</button>
+    <button (click)="ordenFecha()" type="button" class="btn btn-outline-dark">Orden por fecha</button>
+    <button (click)="reset()" type="button" class="btn btn-outline-danger">Reset</button>
+</div>
 <table  class="table">
         
     <thead>
     <tr>
+        <th scope="col">ID</th>
         <th scope="col">Cliente</th>
         <th scope="col">Nombre del proyecto</th>
         <th scope="col">Total</th>
@@ -12,8 +18,9 @@
     </thead>
     <tbody  *ngFor="let item of Lista; let i = index ">
     <tr>
+        <th scope="row">{{i+1}}</th>
         <td>{{item.nombreCliente}}</td>
-        <td>{{item.idPresupuesto}}</td>
+        <td>{{item.nombreProyecto}}</td>
         <td>{{item.total| number}}€</td>
         <td>{{item.fecha |date }}</td>
     </tr>
