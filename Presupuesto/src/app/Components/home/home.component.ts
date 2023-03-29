@@ -1,6 +1,7 @@
 import { PreciosService } from '../../services/precios.service';
 import { Component,  OnChanges,  OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { lista } from 'src/app/interfaces/listaInterface';
 
 
 
@@ -11,6 +12,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit,OnChanges  {
   myForm:FormGroup = this.fb.group({
+    nombreCliente:['',Validators.required],
+    nombrePresupuesto:['',Validators.required],
     web:[false ,Validators.required],
     Seo: [false,Validators.required],
     publicidad:[false,Validators.required],
@@ -53,6 +56,10 @@ ngOnChanges(changes: SimpleChanges): void {
     });
    
   }
+  estado !:boolean 
+  get PresupuestoList() {
+    return this.PreciosService.listaPresupuestos;
+  }
   
   total:number = 0;
   controlarPrecio(campo:string , valor:number){
@@ -64,17 +71,22 @@ ngOnChanges(changes: SimpleChanges): void {
     }
   }
   
-   resetForm() {
-  this.myForm.reset();
-  location.reload();
-  }
   submitForm(){
-         
+    const NuevoPresupuesto: lista = 
+    {      
+      idPresupuesto: this.myForm.value.nombrePresupuesto,
+      nombreCliente: this.myForm.value.nombreCliente,
+      fecha: new Date,
+      total: this.PreciosService.precioTotalGlobal
+    }    
     if(this.myForm.invalid){
         this.myForm.markAllAsTouched();
         return;
     }else if (this.myForm.valid) { 
       this.PreciosService.totalPrice();
+      this.PresupuestoList.push(NuevoPresupuesto);
+      console.log(this.PresupuestoList)
+      this.PreciosService.restarTotal();
       this.myForm.reset({publicidad:false,Seo:false,web:false}); 
     } 
   }

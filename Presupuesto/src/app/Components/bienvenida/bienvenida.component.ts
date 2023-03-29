@@ -1,3 +1,4 @@
+import { HomeComponent } from './../home/home.component';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./bienvenida.component.css']
 })
 export class BienvenidaComponent {
-  
 
 }

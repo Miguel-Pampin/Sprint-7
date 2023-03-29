@@ -1,31 +1,47 @@
 <div class="row container-fluid ms-5">
-  <div class="col-12">
+  <div class="col-6">
     <form (ngSubmit)="submitForm()" class="mt-5 " [formGroup]="myForm">
       <h3>¿Que quieres hacer?</h3>
       <div class="row">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="flexCheckWeb" formControlName="web"
-            (click)="controlarPrecio('web',500)">
-          <label class="form-check-label" for="flexCheckWeb">
-            Hacer una página web (500 €)
-          </label>
-        </div>
-        <div *ngIf="mostrarPanel('web')">
-          <app-panel></app-panel>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="flexCheckSEO" formControlName="Seo"
-            (click)="controlarPrecio('Seo',300)">
-          <label class="form-check-label" for="flexCheckSEO">
-            Hacer una campaña SEO (300 €)
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="flexCheckPublicitat" formControlName="publicidad"
-            (click)="controlarPrecio('publicidad',200)">
-          <label class="form-check-label" for="flexCheckPublicitat">
-            Hacer una campaña de publicitat (200 €)
-          </label>
+        <div class="col">
+          <div class="input-group input-group  w-50">
+            <label class="mt-2">
+              Nombre del cliente:
+            </label>
+            <input type="text" class="form-control m-1" 
+              formControlName="nombreCliente">
+          </div>
+          <div class="input-group input-group mb-2 w-50">
+            <label class="mt-3">
+              Nombre del proyecto:
+            </label>
+            <input type="text" class="form-control m-2"  
+              formControlName="nombrePresupuesto">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="flexCheckWeb" formControlName="web"
+              (click)="controlarPrecio('web',500)">
+            <label class="form-check-label" for="flexCheckWeb">
+              Hacer una página web (500 €)
+            </label>
+          </div>
+          <div *ngIf="mostrarPanel('web')">
+            <app-panel></app-panel>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="flexCheckSEO" formControlName="Seo"
+              (click)="controlarPrecio('Seo',300)">
+            <label class="form-check-label" for="flexCheckSEO">
+              Hacer una campaña SEO (300 €)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="flexCheckPublicitat" formControlName="publicidad"
+              (click)="controlarPrecio('publicidad',200)">
+            <label class="form-check-label" for="flexCheckPublicitat">
+              Hacer una campaña de publicitat (200 €)
+            </label>
+          </div>
         </div>
       </div>
     </form>
@@ -34,9 +50,13 @@
         <p>Precio: {{ SumaTotal|number}}€</p>
       </div>
     </div>
-    <br><br>
-    <!-- <button class="btn btn-info" (click)="resetForm()">Vacia formulario</button><br><br> -->
-    <button class="btn btn-info" ><a routerLink="" class="active-link"> Volver a inicio.🏡</a></button>
-    
+    <br>
+    <div class="col-3 w-10">
+      <button class="btn btn-primary" type="submit" (click)="submitForm()">Guardar presupuesto</button>
   </div>
+<br><br>
+    <button class="btn btn-info"><a routerLink="/" class="active-link"> Volver a inicio.🏡</a></button>
+
+  </div>
+  <div class="col-6"><app-presupuesto-lista class="lista"></app-presupuesto-lista></div>
 </div>

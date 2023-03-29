@@ -1,0 +1,20 @@
+<h2>Presupuesto</h2>
+<table  class="table">
+        
+    <thead>
+    <tr>
+        <th scope="col">Cliente</th>
+        <th scope="col">Nombre del proyecto</th>
+        <th scope="col">Total</th>
+        <th scope="col">Fecha</th>
+               
+    </tr>
+    </thead>
+    <tbody  *ngFor="let item of Lista; let i = index ">
+    <tr>
+        <td>{{item.nombreCliente}}</td>
+        <td>{{item.idPresupuesto}}</td>
+        <td>{{item.total| number}}€</td>
+        <td>{{item.fecha |date }}</td>
+    </tr>
+    </tbody>

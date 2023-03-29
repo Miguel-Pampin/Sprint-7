@@ -10,6 +10,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { PanelComponent } from './Components/panel/panel.component';
 import { BienvenidaComponent } from './Components/bienvenida/bienvenida.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PresupuestoListaComponent } from './components/presupuesto-lista/presupuesto-lista.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     PanelComponent,
     BienvenidaComponent,
+    PresupuestoListaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, NgbModule],
   providers: [PreciosService],

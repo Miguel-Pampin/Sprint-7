@@ -1,10 +1,11 @@
 import { Injectable, OnInit } from "@angular/core";
+import { lista } from "../interfaces/listaInterface";
 
 
 @Injectable()
 
 export class PreciosService implements OnInit {
-
+public listaPresupuestos:lista[]=[]
     totalHome:number = 0;
     precioTotalGlobal:number = 0
     totalPanel:number = 0
@@ -27,5 +28,10 @@ export class PreciosService implements OnInit {
         this.precioTotalGlobal = (this.totalHome + this.totalPanel );
         return this.precioTotalGlobal;
     }
-   
+    restarTotal(){
+        this.totalPanel = 0;
+        this.totalHome = 0 ;
+        this.precioTotalGlobal= 0;
+    }
+
   }
