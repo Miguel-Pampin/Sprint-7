@@ -9,8 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { PanelComponent } from './Components/panel/panel.component';
 import { BienvenidaComponent } from './Components/bienvenida/bienvenida.component';
-import { Modal1Component } from './Components/modal1/modal1.component';
-import { Modal2Component } from './Components/modal2/modal2.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -19,8 +17,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     PanelComponent,
     BienvenidaComponent,
-    Modal1Component,
-    Modal2Component,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, NgbModule],
   providers: [PreciosService],
